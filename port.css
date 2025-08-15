@@ -18,8 +18,8 @@
   /* Gradients for backgrounds and hero sections */
   --bg-dark-gradient: linear-gradient(135deg, #0F172A 0%, #1A2440 50%, #0F172A 100%); /* Blue-based dark gradient */
   --bg-light-gradient: linear-gradient(135deg, #F8F9FA 0%, #DEE2E6 100%); /* Softer, subtle light gradient */
-  /* --bg-hero-gradient: linear-gradient(270deg, #0A449F, #1C2B5B 25%, #25396C 60%, #0F4C81 100%); Blue-focused gradient for hero */
-  --bg-navbar-dark: linear-gradient(90deg, #0F172A, #212529); /* Deeper, more subdued dark navbar */
+  /* --bg-hero-gradient: linear-gradient(270deg, #0A449F, #1C2B5B 25%, #25396C 60%, #0F4C81 100%); */
+  --bg-navbar-dark: linear-gradient(90deg, #0F172A, #212529); /* Deeper, more subdued dark navbar */ 
   --bg-navbar-light: linear-gradient(90deg, #F8F9FA, #DEE2E6); /* Brighter, subtle light navbar */
 
   /* Text colors */
@@ -65,6 +65,40 @@ html, body {
   display: block;
 }
 
+/* Back to Top Neon Arrow */
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 40px;     
+  height: 40px;      
+  background-color: #7474e9; 
+  border: none;
+  border-radius: 50%; 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* box-shadow: 0 0 10px #7a7aec, 0 0 20px #24244f, 0 0 40px #171788; */
+  animation: float 3s ease-in-out infinite, neonPulse 1.5s infinite alternate;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#backToTop:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #7a7aec, 0 0 30px #24244f, 0 0 60px #171788;
+}
+
+
+#backToTop svg {
+  width: 24px;
+  height: 24px;
+}
+
+
+
 body {
   font-family: 'Segoe UI', 'Inter', 'Roboto', Arial, sans-serif;
   background: var(--bg-dark-gradient);
@@ -93,128 +127,151 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/* === Dark Mode Toggle Switch === */
-.theme-toggle {
+/* === Dark Mode Neon Circular Button === */
+.theme-toggle-container {
+  position: fixed;
+  bottom: 30px; 
+  right: 20px;
+  z-index: 1000;
+}
+
+#darkModeBtn {
+  width: 40px;
+  height: 40px;
+  background-color: #7474e9;  
+  border: 2px solid #7474e9;  
+  border-radius: 50%;         
   display: flex;
   align-items: center;
-  gap: 10px;
-}
-#darkModeToggle {
-  display: none;
-}
-.toggle-switch {
-  width: 50px;
-  height: 24px;
-  background: #595d79;
-  border-radius: 50px;
-  position: relative;
+  justify-content: center;
   cursor: pointer;
-  transition: background 0.3s;
-}
-.toggle-switch::before {
-  content: '';
-  width: 20px;
-  height: 20px;
-  background: var(--text-light);
-  position: absolute;
-  border-radius: 50%;
-  top: 2px;
-  left: 2px;
-  transition: transform 0.3s;
-}
-#darkModeToggle:checked + .toggle-switch {
-  background: var(--primary);
-}
-#darkModeToggle:checked + .toggle-switch::before {
-  transform: translateX(26px);
+  /* box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00f0ff; */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+#darkModeBtn svg {
+  width: 24px;
+  height: 24px;
+  stroke: black; 
+  transition: transform 0.3s ease;
+}
+
+#darkModeBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #7a7aec, 0 0 30px #24244f, 0 0 60px #171788;
+}
 /* === Light Theme Overrides === */
 body.light-mode {
-  background: var(--bg-light-gradient);
-  color: var(--neutral-dark);
+  background: var(--bg-light-gradient); /* soft gradient for light mode */
+  color: var(--neutral-dark);           /* main text color */
 }
 
+/* Navbar */
 body.light-mode .navbar {
   background: var(--bg-navbar-light);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
+
 body.light-mode .navbar ul li a {
-  color: #313852;
+  color: var(--neutral-mid);
 }
+
 body.light-mode .navbar ul li a::after {
-  background: var(--tertiary);
+  background: var(--primary);
 }
+
 body.light-mode .navbar ul li a.active {
   color: var(--text-dark);
   text-shadow: none;
 }
 
+/* Hero / Home Section */
 body.light-mode .hero {
-  background: linear-gradient(135deg, #eef2ff, #e0d6fa);
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe); /* soft blue gradient */
+  color: var(--neutral-dark); /* ensure all text is readable */
 }
+
 body.light-mode .hero h1 span {
-  color: var(--tertiary);
+  color: var(--primary);
 }
 
+/* Section Headings */
 body.light-mode h2 {
-  color: var(--tertiary);
+  color: var(--primary);
 }
 
+/* About Me & General Text Sections */
+body.light-mode .about,
+body.light-mode .about p {
+  color: var(--neutral-dark); /* keep readable text */
+}
+
+/* Cards & Timelines */
 body.light-mode .timeline-item,
 body.light-mode .cert-card,
 body.light-mode .card,
 body.light-mode .circle-glow {
-  background: var(--text-light);
-  color: var(--neutral-dark) !important; 
-  border-color: var(--tertiary);                
-}
-body.light-mode .cert-card h3 {
-  color: var(--tertiary);
-}
-body.light-mode .cert-card p {
-  color: var(--border-dark);
-}
-body.light-mode .card:hover {
-  box-shadow: 0 0 15px #6d6bf844;
-}
-body.light-mode .circle-glow:hover {
-  box-shadow: 0 0 20px #9376e055, 0 0 30px var(--primary-light);
+  background: var(--neutral-lighter);
+  color: var(--neutral-dark) !important;
+  border-color: var(--primary);
 }
 
+body.light-mode .cert-card h3 {
+  color: var(--primary);
+}
+
+body.light-mode .cert-card p {
+  color: var(--neutral-mid);
+}
+
+body.light-mode .card:hover {
+  box-shadow: 0 0 15px var(--shadow-primary);
+}
+
+body.light-mode .circle-glow:hover {
+  box-shadow: 0 0 20px var(--primary-light), 0 0 30px var(--accent);
+}
+
+/* Buttons */
 body.light-mode .btn,
 body.light-mode .resume-btn {
-  color: var(--tertiary);
-  border: 2px solid var(--tertiary);
-  background: #ffffff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  background: var(--neutral-lighter);
 }
+
 body.light-mode .btn:hover,
 body.light-mode .resume-btn:hover {
-  background: var(--tertiary);
+  background: var(--primary);
   color: var(--text-light);
 }
 
+/* Forms */
 body.light-mode .input-group input,
 body.light-mode .input-group textarea {
-  background: var(--neutral-lighter);
-  color: var(--text-dark);
-  border: 2px solid var(--neutral-light);
-}
-body.light-mode .input-group label {
-  color: var(--border-dark);
+  background: var(--neutral-light);
+  color: var(--neutral-dark);
+  border: 2px solid var(--border-light);
 }
 
-body.light-mode .submit-glow {
-  color: var(--tertiary);
-  border-color: var(--tertiary);
+body.light-mode .input-group label {
+  color: var(--neutral-mid);
 }
+
+/* Submit Button */
+body.light-mode .submit-glow {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
 body.light-mode .submit-glow:hover {
-  background: var(--tertiary);
+  background: var(--primary);
   color: var(--text-light);
 }
 
+/* Footer */
 body.light-mode footer {
-  background: #ecf2fa;
+  background: var(--secondary-light);
   color: var(--neutral-dark);
 }
 
@@ -355,6 +412,7 @@ h2 {
   background: #232358;
   padding: 20px;
   border-left: 4px solid var(--primary);
+  border-right: 4px solid var(--primary);
   border-radius: 5px;
   animation: fadeUp 1s ease-in;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
@@ -366,7 +424,7 @@ h2 {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
   background: #32328f; /* Slightly lighter shade */
   cursor: pointer;
-  box-shadow: 2px 2px 20px var(--primary);
+  box-shadow: 0 0 9px var(--primary);
 }
 
 /* ========== Certifications ========== */
