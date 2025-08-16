@@ -9,6 +9,7 @@
   <meta name="author" content="Vikas">
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="port.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -17,7 +18,6 @@
   <div class="nav-left">
     <div class="logo">Vikas</div>
   </div>
-
   <div class="nav-center">
     <ul>
        <li><a href="#home">Home</a></li>
@@ -33,6 +33,11 @@
   <div class="nav-right">
     <a href="vikas1.pdf" download class="resume-btn">Download Resume</a>
   </div>
+
+  <div class="menu-toggle" onclick="document.querySelector('.navbar ul').classList.toggle('active')">
+  ☰
+</div>
+
 </nav>
 
   <!-- Hero Section -->
@@ -45,21 +50,14 @@
 
 <div class="full-wave-bg">
   <svg viewBox="0 0 1440 900" preserveAspectRatio="none">
-  
-    <path fill="#0e0e1a" d="M0,0L60,20C120,40,240,80,360,90C480,100,600,80,720,60C840,40,960,20,1080,30C1200,40,1320,80,1380,100L1440,120V900H0Z"></path>
-
-    <path fill="#152238" fill-opacity="0.7" d="M0,100L80,120C160,140,320,180,480,200C640,220,800,200,960,180C1120,160,1280,140,1360,160L1440,180V900H0Z"></path>
-
-    <path fill="#1a2f4a" fill-opacity="0.5" d="M0,200L60,220C120,240,240,280,360,300C480,320,600,300,720,280C840,260,960,240,1080,250C1200,260,1320,280,1380,300L1440,320V900H0Z"></path>
-
-    <path fill="#223c5f" fill-opacity="0.3" d="M0,300L80,320C160,340,320,380,480,400C640,420,800,400,960,380C1120,360,1280,340,1360,360L1440,380V900H0Z"></path>
-
-    <path fill="#2a4d72" fill-opacity="0.25" d="M0,400L60,420C120,440,240,480,360,500C480,520,600,500,720,480C840,460,960,440,1080,450C1200,460,1320,480,1380,500L1440,520V900H0Z"></path>
-    
-    <path fill="#35628a" fill-opacity="0.2" d="M0,500L80,520C160,540,320,580,480,600C640,620,800,600,960,580C1120,560,1280,540,1360,560L1440,580V900H0Z"></path>
+    <path fill="var(--wave1)" d="M0,0L60,20C120,40,240,80,360,90C480,100,600,80,720,60C840,40,960,20,1080,30C1200,40,1320,80,1380,100L1440,120V900H0Z"></path>
+    <path fill="var(--wave2)" fill-opacity="0.7" d="M0,100L80,120C160,140,320,180,480,200C640,220,800,200,960,180C1120,160,1280,140,1360,160L1440,180V900H0Z"></path>
+    <path fill="var(--wave3)" fill-opacity="0.5" d="M0,200L60,220C120,240,240,280,360,300C480,320,600,300,720,280C840,260,960,240,1080,250C1200,260,1320,280,1380,300L1440,320V900H0Z"></path>
+    <path fill="var(--wave4)" fill-opacity="0.3" d="M0,300L80,320C160,340,320,380,480,400C640,420,800,400,960,380C1120,360,1280,340,1360,360L1440,380V900H0Z"></path>
+    <path fill="var(--wave5)" fill-opacity="0.25" d="M0,400L60,420C120,440,240,480,360,500C480,520,600,500,720,480C840,460,960,440,1080,450C1200,460,1320,480,1380,500L1440,520V900H0Z"></path>
+    <path fill="var(--wave6)" fill-opacity="0.2" d="M0,500L80,520C160,540,320,580,480,600C640,620,800,600,960,580C1120,560,1280,540,1360,560L1440,580V900H0Z"></path>
   </svg>
 </div>
-
 
   <section id="about">
     <h2>About Me</h2>
@@ -169,6 +167,7 @@
       </div>
       <p>React</p>
     </div>
+    
     <div class="skill-icon">
       <div class="circle-glow">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
@@ -183,10 +182,23 @@
     </div>
     <div class="skill-icon">
       <div class="circle-glow">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
       </div>
-      <p>MySQL</p>
+      <p>Java(Basics)</p>
     </div>
+    <div class="skill-icon">
+      <div class="circle-glow">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
+      </div>
+      <p>C++</p>
+    </div>
+     <div class="skill-icon">
+      <div class="circle-glow">
+         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" /> 
+      </div>
+         <p>MySQL</p>
+    </div>
+ 
   </div>
 </section>
 
@@ -251,10 +263,10 @@
   </section>
   
   <!-- Dark/Light Mode Toggle -->
-<!-- <div class="theme-toggle-container">
+<div class="theme-toggle-container">
   <button id="darkModeBtn" title="Toggle Dark/Light Mode">
-    Sun icon by default -->
-    <!-- <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Sun icon by default  -->
+   <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
       <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -266,7 +278,7 @@
       <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
     </svg>
   </button>
-</div> -->
+</div>
 
 
   <!-- Back to Top Neon Arrow -->
@@ -277,25 +289,40 @@
   </svg>
 </button>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Vikas. All rights reserved.</p>
-  </footer>
+<footer class="footer"> 
+  <div class="footer-container">
+    <p>© 2025 Vikas. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/gummadala-vikas-39a684355/" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/vikas9391" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="mailto:vikas93912@gmail.com">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
 
   <script>
-     const backToTopBtn = document.getElementById("backToTop");
+   const backToTopBtn = document.getElementById("backToTop");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 200) {
-      backToTopBtn.style.display = "block";
+  // Show/hide button when scrolling
+  window.onscroll = function () {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      backToTopBtn.style.display = "flex"; // show
     } else {
-      backToTopBtn.style.display = "none";
+      backToTopBtn.style.display = "none"; // hide
     }
-  });
+  };
 
-  backToTopBtn.addEventListener("click", () => {
+  // Scroll to top on click
+  backToTopBtn.onclick = function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  };
 
   const words = ["Vikas","a Software Developer","a Full-Stack Engineer","a Creative Thinker","a Tech Explorer","passionate about Innovation"];
   let index = 0;
@@ -336,9 +363,6 @@ darkBtn.addEventListener("click", () => {
     `;
   }
 });
-
-
 </script>
-
 </body>
 </html>
