@@ -193,6 +193,14 @@
     .project-link.disabled{opacity:.45;cursor:not-allowed;pointer-events:none}
     .project-link:not(.disabled):hover{transform:translateY(-1px);opacity:.9}
 
+    /* STUDYFORGE FEATURED CARD */
+    .project-featured{border-color:rgba(99,102,241,.45);box-shadow:0 0 0 1px rgba(99,102,241,.15),0 8px 40px rgba(99,102,241,.12)}
+    .project-featured-badge{position:absolute;top:1rem;right:1rem;z-index:2;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.28rem .8rem;border-radius:50px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 2px 12px rgba(99,102,241,.4);animation:badgePulse 3s ease-in-out infinite}
+    .project-featured .project-img-fallback{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);position:relative;overflow:hidden}
+    .project-featured .project-img-fallback::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(99,102,241,.35),transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(34,211,238,.2),transparent 60%)}
+    .sf-logo-text{font-family:'Orbitron',monospace;font-size:2rem;font-weight:900;letter-spacing:.05em;color:#fff;position:relative;z-index:1}
+    .sf-logo-text span{background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
     /* CONTACT */
     #contact{max-width:700px}
     .contact-wrap{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:2.5rem;position:relative;overflow:hidden}
@@ -494,6 +502,23 @@
     <h2 class="section-title">Featured <span>Projects</span></h2>
   </div>
   <div class="projects-grid">
+
+    <div class="project-card reveal project-featured">
+      <div class="project-featured-badge">✦ Latest Project</div>
+      <img src="studyforge.png" alt="StudyForge" onerror="this.outerHTML='<div class=\'project-img-fallback studyforge-fallback\'><span class=\'sf-logo-text\'>Study<span>Forge</span></span></div>'"/>
+      <div class="project-body">
+        <h3>StudyForge – AI Study Assistant</h3>
+        <p>Upload a PDF or DOCX and instantly get an AI-generated summary, quiz, and flashcards. Includes spaced repetition (SM-2), analytics, shared sessions, OCR, YouTube ingest, and a full admin panel.</p>
+        <div class="project-tags">
+          <span class="tag">Flutter</span><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Hugging Face</span><span class="tag">JWT Auth</span><span class="tag">REST API</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/vikas9391/StudyForge" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://studyforge-api-os9b.onrender.com" target="_blank" class="project-link outline"><i class="fas fa-server"></i> API</a>
+        </div>
+      </div>
+    </div>
+
     <div class="project-card reveal">
       <img src="p1.png" alt="Eunoia" onerror="this.outerHTML='<div class=\'project-img-fallback\'>🧠</div>'"/>
       <div class="project-body">
